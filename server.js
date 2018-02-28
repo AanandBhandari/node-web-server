@@ -1,7 +1,7 @@
 const express=require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-const port  = process.env.PORT || 3000;
+const port  = process.env.PORT || 8888;
 var app = express();
 hbs.registerPartials(__dirname +'/views/partials');
 app.set('view engine','hbs');
@@ -15,7 +15,7 @@ app.use((req,res,next)=>{
 // app.use((req,res,next)=>{
 // 	res.render('maintenance.hbs');
 // });
-hbs.registerHelper('getCurrentDate',()=>{
+hbs.registerHelper('currentYear',()=>{
 	return new Date().getFullYear();
 });
 hbs.registerHelper('screamIt',(text)=>{
@@ -43,7 +43,8 @@ app.get('/bad',(req,res)=>{
 app.get('/project',(req,res)=>{
 	res.render('project.hbs',{
 		pageTitle: 'project page',
-		projectMessage: 'helloworld'
+		projectMessage: 'helloworld',
+		sayHello:'hello Everyone'
 	});
 });
 app.listen(port, () =>{
