@@ -40,6 +40,12 @@ app.get('/bad',(req,res)=>{
 		errorMessage:'Unable to load json data'
 	});
 });
-app.listen(port , () =>{
+app.get('/project',(req,res)=>{
+	res.render('project.hbs',{
+		pageTitle: 'project page',
+		projectMessage: 'helloworld'
+	});
+});
+app.listen(3000, () =>{
 	console.log(`the server is running now on port  ${port}`);
 });
